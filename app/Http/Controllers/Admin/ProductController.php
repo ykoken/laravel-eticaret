@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Concerns\FileUploadTrait;
 use App\Http\Requests\Product\CreateProductRequest;
-use App\Models\Product;
-use App\Repositories\Product\ProductRepository;
+use App\Models\Products\Product;
+use App\Repositories\Product\BasketRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -16,7 +16,7 @@ class ProductController extends Controller
 
     use FileUploadTrait;
 
-    public function __construct(ProductRepository $productRepository,Request $request)
+    public function __construct(BasketRepository $productRepository, Request $request)
     {
         $this->request = $request;
         $this->product = $productRepository;
@@ -117,10 +117,8 @@ class ProductController extends Controller
                 'product_image',
                 'product_description'
             );
-            if (!$request->has('product_image2')){
-                $data['product_image'] = $request->input('product_image');
-            }else{
-                $data['product_image'] = $this->__fileuploads($data['product_image'],'products');
+            if ($request->file('product_image2')){
+                $data['product_image'] = $this->__fileuploads($request->file('product_image2'),'products');
             }
             $this->product->editProduct($data,$request->get('id'));
 

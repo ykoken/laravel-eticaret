@@ -5,7 +5,7 @@ namespace App\Repositories\Product;
 
 
 use App\Concerns\FileUploadTrait;
-use App\Models\Product;
+use App\Models\Products\Product;
 use Illuminate\Http\Request;
 
 class ProductRepository implements ProductRepositoryInterface{
@@ -25,8 +25,8 @@ class ProductRepository implements ProductRepositoryInterface{
 
     public function addProduct($data)
     {
-        if ($data['resim']){
-            $data['resim'] = $this->__fileuploads($data['resim'],'products');
+        if ($data['product_image']){
+            $data['product_image'] = $this->__fileuploads($data['product_image'],'products');
         }
         return Product::create($data);
     }

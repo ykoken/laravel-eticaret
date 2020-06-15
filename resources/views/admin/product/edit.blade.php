@@ -69,7 +69,7 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="section"><label for="urun_resim" class="field-label">Ürün Resmi
+                                <div class="section"><label for="product_image2" class="field-label">Ürün Resmi
                                         Ekle</label>
                                     <label class="field">
                                         <input type="file" name="product_image2" class="gui-input">

@@ -62,7 +62,7 @@
                 <tr>
 
                     <td class="w100">
-                        <img class="img-responsive mw40 ib mr10" title="user" src="{{$item->product_image}}">
+                        <img class="img-responsive mw40 ib mr10" title="user" src="/{{$item->product_image}}">
                     </td>
                     <td class="">{{$item->product_name}}</td>
                     <td class="">{{$item->product_code}}</td>

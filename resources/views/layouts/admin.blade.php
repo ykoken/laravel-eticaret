@@ -180,8 +180,14 @@
                 <ul class="dropdown-menu dropdown-persist pn w250 bg-white" role="menu">
 
                     <li class="br-t of-h">
-                        <a href="#" class="fw600 p12 animated animated-short fadeInDown">
+                        <a href="{{ route('logout') }}" class="fw600 p12 animated animated-short fadeInDown"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+
                             <span class="fa fa-power-off pr5"></span> Logout </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </li>
                 </ul>
             </li>
@@ -235,7 +241,7 @@
 
             </ul>
             <div class="sidebar-toggle-mini">
-                <a href="#">
+                <a href="{{ route('logout') }}">
                     <span class="fa fa-sign-out"></span>
                 </a>
             </div>

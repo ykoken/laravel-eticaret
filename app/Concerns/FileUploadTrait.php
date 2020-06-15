@@ -12,7 +12,7 @@ trait FileUploadTrait
     {
         $image = $file;
         $image_map = time() . '.' . $image->getClientOriginalExtension();
-        $destinationPath = public_path($path_map);
+        $destinationPath = $path_map;
         $image_map_path = $image->move($destinationPath, $image_map);
 
         return $image_map_path;
