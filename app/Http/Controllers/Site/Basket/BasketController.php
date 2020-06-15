@@ -26,8 +26,12 @@ class BasketController extends Controller
      */
     public function basket()
     {
-        $data = Basket::join('products','products.id','=','basket.product_id')->where('user_id',Auth::user()->id)->where('sesid',Session::getId())->get();
-        return view('site.basket.cart',compact('data'));
+        $baskets = Basket::join('products','products.id','=','basket.product_id')
+            ->where('user_id',Auth::user()->id)
+            ->where('sesid',Session::getId())
+            ->selectRaw('basket.id as id,user_id,product_id,products.price as price,basket.price as basket_price,sesid,amount, product_name,product_code,stock,product_image,product_description,status')
+            ->get();
+        return view('site.basket.cart',compact('baskets'));
     }
 
     public function addBasket()
@@ -43,69 +47,32 @@ class BasketController extends Controller
             return redirect()->back()->with('danger', 'Ürün Eklenemedi.');
         }
 
-
-        $product = Product::find($id);
-        if(!$product) {
-            abort(404);
-        }
-        $cart = session()->get('cart');
-        // if cart is empty then this the first product
-        if(!$cart) {
-            $cart = [
-                $id => [
-                    "product_name" => $product->product_name,
-                    "quantity" => 1,
-                    "price" => $product->price,
-                    "product_image" => $product->product_image
-                ]
-            ];
-            session()->put('cart', $cart);
-            return redirect()->back()->with('success', 'Product added to cart successfully!');
-        }
-        // if cart not empty then check if this product exist then increment quantity
-        if(isset($cart[$id])) {
-            $cart[$id]['quantity']++;
-            session()->put('cart', $cart);
-            return redirect()->back()->with('success', 'Product added to cart successfully!');
-        }
-        // if item not exist in cart then add to cart with quantity = 1
-        $cart[$id] = [
-            "product_name" => $product->product_name,
-            "quantity" => 1,
-            "price" => $product->price,
-            "product_image" => $product->product_image
-        ];
-        session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
     public function update(Request $request)
     {
-        if($request->id and $request->quantity)
-        {
-            $cart = session()->get('cart');
 
-            $cart[$request->id]["quantity"] = $request->quantity;
+        try {
+            $this->basket->updateProductBasket(
+                $this->request->get('id'),
+                $this->request->get('quantity')
+            );
 
-            session()->put('cart', $cart);
-
-            session()->flash('success', 'Cart updated successfully');
+            return redirect()->back()->with('success', 'Sepet Güncellendi.');
+        } catch (Exception $e) {
+            return redirect()->back()->with('danger', 'Sepet Güncellenemedi.');
         }
     }
 
     public function remove(Request $request)
     {
-        if($request->id) {
+        try {
+            $this->basket->removeProductBasket(
+                $this->request->get('id'),
+            );
 
-            $cart = session()->get('cart');
-
-            if(isset($cart[$request->id])) {
-
-                unset($cart[$request->id]);
-
-                session()->put('cart', $cart);
-            }
-
-            session()->flash('success', 'Product removed successfully');
+            return redirect()->back()->with('success', 'Ürün Silindi.');
+        } catch (Exception $e) {
+            return redirect()->back()->with('danger', 'Ürün Silinirken Hata Oluştu.');
         }
     }
 }

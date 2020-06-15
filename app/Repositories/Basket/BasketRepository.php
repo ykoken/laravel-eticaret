@@ -32,7 +32,7 @@ class BasketRepository implements BasketRepositoryInterface{
 
     public function addProductToBasket($productId,$amount=1)
     {
-        $stockWarningCount = 0;
+
         $memberId          = !is_null(Auth::user()) ? Auth::user()->id : 0;
         $sessionId         = Session::getId();
 
@@ -100,6 +100,24 @@ class BasketRepository implements BasketRepositoryInterface{
         $memberId        = Auth::user() ? Auth::user()->id : null;
 
         return $baskets = $this->basket->where('user_id',$memberId)->where('sesid',$sessionId)->delete();
+    }
+
+    public function updateProductBasket($productId,$amount=1)
+    {
+
+        $memberId          = !is_null(Auth::user()) ? Auth::user()->id : 0;
+        $sessionId         = Session::getId();
+
+        $product = $this->basket->where('user_id',$memberId)->where('sesid',$sessionId)->first();
+
+        $this->basket->where('id',$product->id)->update(['amount'=>$amount]);
+        return $this->getBasketProducts();
+    }
+
+    public function removeProductBasket($id)
+    {
+        $this->basket->find($id)->delete();
+        return $this->getBasketProducts();
     }
 }
 
