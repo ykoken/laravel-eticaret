@@ -47,42 +47,28 @@
             <table class="table admin-form theme-warning tc-checkbox-1 fs13">
                 <thead>
                 <tr class="bg-light">
-                    <th class="">Resim</th>
-                    <th class="">Ürün Adı</th>
-                    <th class="">Ürün Kodu</th>
+                    <th class="">Sale Code</th>
+                    <th class="">Kullanıcı</th>
                     <th class="">Fiyat</th>
-                    <th class="">Stok</th>
+                    <th class="">Status</th>
                     <th class="text-right">Status</th>
 
                 </tr>
                 </thead>
                 <tbody>
 
-              @foreach($products as $item)
+              @foreach($orders as $item)
                 <tr>
-
-                    <td class="w100">
-                        <img class="img-responsive mw40 ib mr10" title="user" src="/{{$item->product_image}}">
-                    </td>
-                    <td class="">{{$item->product_name}}</td>
-                    <td class="">{{$item->product_code}}</td>
-                    <td class="">#{{number_format($item->price,'2',',','.')}}</td>
-                    <td class="">{{$item->stock}}</td>
+                    <td class="">{{$item->sales_code}}</td>
+                    <td class="">{{$item->name}}</td>
+                    <td class="">#{{number_format($item->total_price,'2',',','.')}}</td>
+                    <td class="">{{$item->name == 0 ? 'Pasif' : 'Aktif'}}</td>
                     <td class="text-right">
-                        <div class="btn-group text-right">
-                            <button type="button" class="btn btn-success br2 btn-xs fs12 dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Active
-                                <span class="caret ml5"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="/admin/product/edit/{{$item->id}}">Edit</a>
-                                </li>
-                                <li>
-                                    <a href="#" onclick="deleteProduct({{$item->id}})">Delete</a>
-                                </li>
-
-                            </ul>
-                        </div>
+                        @if ($item->status == 1)
+                        Onaylandı
+                        @else
+                            <a href="#" onclick="verifyOrder({{$item->id}})">Siparişi Onayla</a>
+                            @endif
                     </td>
                 </tr>
               @endforeach
@@ -99,25 +85,25 @@
 @section('js')
     <script>
 
-        function deleteProduct(id,rid) {
+        function verifyOrder(id) {
             swal({
-                title: 'Lütfen Dikkat',
-                text: 'Bu Ürünün Silinmesini Onaylıyor musunuz?',
-                type: 'warning',
+                title: 'Dikkat',
+                text: 'Bu Sipariş Onaylanacak?',
+                type: 'danger',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Evet, Sil!'
+                confirmButtonText: 'Evet, Onayla!'
             }).then(function () {
                 $.ajax({
-                    url: "/admin/product/delete/" + id,
+                    url: "/admin/orders/" + id,
                     type: 'get',
                     data: $(this).serialize(),
                     dataType: 'json',
                     success: function (response) {
                         swal({
-                            title: 'Ürün Silindi',
-                            text: 'Silme işlemi Tamamlandı',
+                            title: 'Onaylandı',
+                            text: 'Sipariş Onaylandı',
                             type: 'success'
                         })
                         location.reload();
@@ -125,7 +111,7 @@
                     error: function (response) {
                         swal({
                             title: 'İşlem Yapılamadı',
-                            text: 'Ürün Silinirken Hata Oluştu',
+                            text: 'Sipariş Onaylanırken Hata Oluştu',
                             type: 'error'
                         })
                     }

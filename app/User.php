@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Models\Address\UserDeliveryAddress;
+use App\Models\Address\UserInvoicesAddress;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -36,4 +38,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function deliveryAddresses()
+    {
+        return $this->hasMany(UserDeliveryAddress::class, 'user_id')
+            ->orderBy('id', 'desc');
+    }
+
+    public function invoiceAddresses()
+    {
+        return $this->hasMany(UserInvoicesAddress::class, 'user_id')
+            ->orderBy('id', 'desc');
+    }
 }

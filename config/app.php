@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         App\Providers\BasketRepositoryServiceProvider::class,
+        App\Providers\PaymentRepositoryServiceProvider::class,
         /*
          * Application Service Providers...
          */

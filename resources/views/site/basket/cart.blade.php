@@ -58,6 +58,7 @@
             <td><a href="{{ url('/') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Alışverişe Devam Et</a></td>
             <td colspan="2" class="hidden-xs"></td>
             <td class="hidden-xs text-center"><strong>Total ₺{{ $total }}</strong></td>
+            <td><a href="{{ route('checkout1') }}" class="btn btn-success"><i class="fa fa-angle-right"></i> Siparişi Tamamla</a></td>
         </tr>
         </tfoot>
     </table>
@@ -71,7 +72,7 @@
 
             $.ajax({
                 url: '/basket/update',
-                method: "patch",
+                method: "post",
                 data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), quantity: ele.parents("tr").find(".quantity").val()},
                 success: function (response) {
                      window.location.reload();

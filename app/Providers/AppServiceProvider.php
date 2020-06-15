@@ -27,16 +27,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('*', function ($view)
-        {
-            $data = [
-                'cart' => Basket::join('products','products.id','=','basket.product_id')->where('user_id',Auth::user()->id)->where('sesid',Session::getId())->get(),
-                'count' => Basket::where('user_id',Auth::user()->id)->where('sesid',Session::getId())->sum('amount')
-            ];
 
-            //...with this variable
-            $view->with('data',$data);
-        });
+
+            view()->composer('*', function ($view)
+            {
+                $data = [
+                    'cart' => Basket::join('products','products.id','=','basket.product_id')->where('sesid',Session::getId())->get(),
+                    'count' => Basket::where('sesid',Session::getId())->sum('amount')
+                ];
+
+                //...with this variable
+                $view->with('data',$data);
+            });
 
     }
 }

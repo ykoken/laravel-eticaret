@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site\Basket;
 use App\Models\Basket;
 use App\Models\Products\Product;
 use App\Repositories\Basket\BasketRepositoryInterface;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,7 @@ class BasketController extends Controller
 {
     protected $basket;
     protected $request;
-    public function __construct(BasketRepositoryInterface $basket, Request $request)
+    public function __construct(BasketRepositoryInterface $basket,  Request $request)
     {
         $this->basket = $basket;
         $this->request = $request;
@@ -75,4 +76,16 @@ class BasketController extends Controller
             return redirect()->back()->with('danger', 'Ürün Silinirken Hata Oluştu.');
         }
     }
+
+    public function checkout1()
+    {
+        $authUser = Auth::user();
+        $sesionId = Session::getId();
+
+        $deliveryAddress = $authUser->deliveryAddresses;
+        $invoiceAddress =  $authUser->invoiceAddresses;
+        return view('site.payment.checkout-step-1',compact('deliveryAddress','invoiceAddress'));
+    }
+
+
 }

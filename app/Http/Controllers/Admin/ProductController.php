@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Concerns\FileUploadTrait;
 use App\Http\Requests\Product\CreateProductRequest;
 use App\Models\Products\Product;
-use App\Repositories\Product\BasketRepository;
+use App\Repositories\Product\ProductRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -16,7 +16,7 @@ class ProductController extends Controller
 
     use FileUploadTrait;
 
-    public function __construct(BasketRepository $productRepository, Request $request)
+    public function __construct(ProductRepository $productRepository, Request $request)
     {
         $this->request = $request;
         $this->product = $productRepository;
@@ -28,8 +28,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data = $this->product->getProductList();
-        return view('admin.product.list',compact('data'));
+        $products = $this->product->getProductList();
+        return view('admin.product.list',compact('products'));
     }
 
     /**
@@ -48,9 +48,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(CreateProductRequest $request)
     {
-
+        $validated = $request->validated();
         try {
             $data = $this->request->only(
                 'product_name',

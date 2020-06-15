@@ -224,9 +224,9 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="/admin/order/list">
+                    <a href="/admin/orders">
                         <span class="glyphicons glyphicons-shopping_cart"></span>
-                        <span class="sidebar-title">Email Templates</span>
+                        <span class="sidebar-title">Sipariş Listesi</span>
                         <span class="sidebar-title-tray">
                                 <span class="label label-xs bg-primary">New</span>
                             </span>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class BasketProduction extends Migration
+class CreateUserDeliveryAddress extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ class BasketProduction extends Migration
      */
     public function up()
     {
-        Schema::create('basket', function (Blueprint $table) {
+        Schema::create('user_delivery_address', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
-            $table->integer('product_id');
-            $table->string('sesid');
-            $table->integer('amount');
-            $table->integer('price');
+            $table->string('idno');
+            $table->string('name');
+            $table->string('mobile_number');
+            $table->integer('city');
+            $table->integer('district');
+            $table->string('address');
             $table->timestamps();
         });
-
     }
 
     /**
@@ -32,6 +33,6 @@ class BasketProduction extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('basket');
+        Schema::dropIfExists('user_delivery_address');
     }
 }

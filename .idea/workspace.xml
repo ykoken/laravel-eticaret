@@ -2,11 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36af0f4e-4e7a-4443-88c8-dca504315783" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Repositories/Address/DeliveryAddressRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/Address/DeliveryAddressRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/Payment/PaymentRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/Payment/PaymentRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Site/Basket/BasketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Site/Basket/BasketController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/Basket/BasketRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Basket/BasketRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/Basket/BasketRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Basket/BasketRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Product/ProductRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Product/ProductRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_14_215026_basket_production.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_14_215026_basket_production.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/site.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/site.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/site/basket/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/basket/cart.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,23 +44,23 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Repositories/Basket" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/order" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\e-ticaret-task\app\Models\Sales" />
+      <recent name="C:\xampp\htdocs\e-ticaret-task\app\Repositories\Basket" />
+      <recent name="C:\xampp\htdocs\e-ticaret-task\app\Models\Address" />
       <recent name="C:\xampp\htdocs\e-ticaret-task\resources\views\site" />
       <recent name="C:\xampp\htdocs\e-ticaret-task\app\Models\Products" />
-      <recent name="C:\xampp\htdocs\e-ticaret-task\app\Http\Controllers\Site\Basket" />
-      <recent name="C:\xampp\htdocs\e-ticaret-task\resources\views" />
-      <recent name="C:\xampp\htdocs\e-ticaret-task\public\css" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\e-ticaret-task\app\Repositories\Basket" />
-      <recent name="C:\xampp\htdocs\e-ticaret-task\app\Models\Basket" />
+      <recent name="C:\xampp\htdocs\e-ticaret-task\resources\views\admin\order" />
       <recent name="C:\xampp\htdocs\e-ticaret-task\app\Repositories" />
-      <recent name="C:\xampp\htdocs\e-ticaret-task\app\Http\Requests\Basket" />
-      <recent name="C:\xampp\htdocs\e-ticaret-task\app" />
+      <recent name="C:\xampp\htdocs\e-ticaret-task\app\Providers" />
+      <recent name="C:\xampp\htdocs\e-ticaret-task\resources\views\site\payment" />
+      <recent name="C:\xampp\htdocs\e-ticaret-task\app\Repositories\Basket" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -75,7 +89,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592179527309</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="ADD: sepet güncelleme işlemi yapıldı.">
+      <created>1592183761922</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1592183761922</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -84,7 +105,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ADD: CRUD işlemleri yapıldı." />
     <MESSAGE value="ADD: üye ekranı ve sepet işlemleri yapıldı." />
-    <option name="LAST_COMMIT_MESSAGE" value="ADD: üye ekranı ve sepet işlemleri yapıldı." />
+    <MESSAGE value="ADD: sepet güncelleme işlemi yapıldı." />
+    <option name="LAST_COMMIT_MESSAGE" value="ADD: sepet güncelleme işlemi yapıldı." />
   </component>
   <component name="WindowStateProjectService">
     <state x="769" y="401" key="#Composer" timestamp="1591990396438">
@@ -95,18 +117,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="708" y="310" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1592129216198" />
-    <state x="652" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1592169504748">
+    <state x="652" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1592217048548">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="652" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592169504748" />
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1592179072414">
+    <state x="652" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592217048548" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1592219192950">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592179072414" />
-    <state x="585" y="1" key="CommitChangelistDialog2" timestamp="1592179526520">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592219192950" />
+    <state x="585" y="1" key="CommitChangelistDialog2" timestamp="1592183761401">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="1" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1592179526520" />
+    <state x="585" y="1" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1592183761401" />
     <state x="184" y="85" key="DiffContextDialog" timestamp="1592076114794">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -119,33 +141,33 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="787" y="138" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592076101028" />
-    <state x="552" y="234" key="Vcs.Push.Dialog.v2" timestamp="1592122929648">
+    <state x="552" y="234" key="Vcs.Push.Dialog.v2" timestamp="1592183764668">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="234" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1592122929648" />
+    <state x="552" y="234" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1592183764668" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1592166145661">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592166145661" />
-    <state x="605" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1592148115966">
+    <state x="605" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1592217066836">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="605" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1592148115966" />
+    <state x="605" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1592217066836" />
     <state x="805" y="171" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1592097568116">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="805" y="171" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592097568116" />
-    <state x="668" y="237" width="864" height="649" key="find.popup" timestamp="1592173988168">
+    <state x="668" y="237" width="864" height="649" key="find.popup" timestamp="1592219991097">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="668" y="237" width="864" height="649" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1592173988168" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1592169804089">
+    <state x="668" y="237" width="864" height="649" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1592219991097" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1592212519688">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1592169804089" />
-    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup" timestamp="1592180764802">
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1592212519688" />
+    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup" timestamp="1592217426400">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1592180764802" />
+    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1592217426400" />
   </component>
 </project>
